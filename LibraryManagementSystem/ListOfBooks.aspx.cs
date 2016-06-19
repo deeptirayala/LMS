@@ -11,7 +11,29 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                BindGrid();
+            }
+        }
+        private void BindGrid()
+        {
+            // using command temporarily creates a context that accesses our database
 
+            using (deeptiEntities db = new deeptiEntities())
+            {
+
+               
+
+                // use LINQ against Books table to have Entity Framework do a SQL query 
+
+                var query= from Book in db.Books
+                           select Book;
+                List<Book> booklist = query.ToList();
+                gvBooks.DataSource = booklist;
+                gvBooks.DataBind();
+            }
+                
         }
     }
 }

@@ -31,7 +31,9 @@
          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Library System Management</h1>
+        
         <div>
+            <asp:Panel ID="pn1" runat="server" Visible ="true">
             <table>
                 <tr>
                     <td class="auto-style1"></td>
@@ -41,8 +43,10 @@
                     </td>
                 </tr>
             </table>
+                 </asp:Panel>
         </div>
         <div>
+            <asp:Panel ID="pn2" runat="server" Visible="true">
             <table>
                 <tr>
                     <td class="auto-style5" dir="rtl">
@@ -54,7 +58,9 @@
                     </td>
                 </tr>
             </table>
+           </asp:Panel>
         </div>
+           
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
          </asp:ContentPlaceHolder>

@@ -28,7 +28,7 @@
              <tr><td class="auto-style6"></td><td></td><td></td></tr>
             <tr>
              <td class="auto-style6"></td>   <td>
-                <asp:GridView ID="GridView1" runat="server">
+                <asp:GridView ID="gvBooks" runat="server" EmptyDataText="No Records !">
                 </asp:GridView>
                 </td>
                 <td></td>

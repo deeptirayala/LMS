@@ -13,5 +13,26 @@ namespace LibraryManagementSystem
         {
 
         }
+
+        protected void txtSubmit_Click(object sender, EventArgs e)
+        {
+            // using command temporarily creates a context that accesses our database
+            using (deeptiEntities db = new deeptiEntities())
+            {
+
+               
+                Book objBook = new Book {
+                    AuthorName = txtAuthorName.Text,
+                    BookTitle = txtBookTitle.Text,
+                    Category = txtCategory.Text
+                };
+                
+                db.Books.Add(objBook);
+                db.SaveChanges();
+
+                lblMessage.Text = " Book added successfully !";
+            }
+               
+        }
     }
 }

@@ -11,7 +11,22 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                BindGrid();
+            }
+        }
+        private void BindGrid()
+        {
+            using (deeptiEntities db = new deeptiEntities())
+            {
+                var query = from reg in db.Registrations
+                            select reg;
+                List<Registration> memberlist = query.ToList();
+                gvUsers.DataSource = memberlist;
+                gvUsers.DataBind();
+                   
+            }
         }
     }
 }
