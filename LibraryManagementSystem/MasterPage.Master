@@ -14,9 +14,6 @@
         .auto-style2 {
             width: 965px;
         }
-        .auto-style3 {
-            width: 898px;
-        }
         .auto-style4 {
             width: 1001px;
         }
@@ -31,30 +28,44 @@
          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Library System Management</h1>
+        
         <div>
+            <asp:Panel ID="pn1" runat="server" Visible ="true">
             <table>
                 <tr>
                     <td class="auto-style1"></td>
                     <td class="auto-style2" dir="rtl">
-                        <asp:TextBox ID="txtusername" runat="server" BorderStyle="None"></asp:TextBox>
-                        <asp:Label ID="lblUserName" runat="server" Text="Hi"></asp:Label>
+                        <asp:Label ID="lblHi" runat="server" Text="Hi"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                        
+                    </td>
+                    <td>
+
                     </td>
                 </tr>
             </table>
+                 </asp:Panel>
         </div>
         <div>
+            <asp:Panel ID="pn2" runat="server" Visible="true">
             <table>
                 <tr>
                     <td class="auto-style5" dir="rtl">
                     </td>
                     <td class="auto-style4" dir="rtl">
                         <asp:Label ID="lblLeftBr" runat="server" Text="["></asp:Label>
-                        <asp:HyperLink runat="server" ForeColor="Blue">Log Out</asp:HyperLink>
+                        <asp:LinkButton ID="lbtnSignOut" runat="server" OnClick="lbtnSignOut_Click">SignOut</asp:LinkButton>
                         <asp:Label ID="lblRightBr" runat="server" Text="]"></asp:Label>
+                    </td>
+                    <td>
+
                     </td>
                 </tr>
             </table>
+           </asp:Panel>
         </div>
+           
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
          </asp:ContentPlaceHolder>

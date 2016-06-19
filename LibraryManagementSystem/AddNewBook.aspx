@@ -10,6 +10,9 @@
         .auto-style8 {
             margin-left: 0px;
         }
+         .auto-style9 {
+             width: 181px;
+         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,20 +31,25 @@
         <table>
             <tr><td class="auto-style6"></td><td></td><td></td></tr>
             <tr>
-             <td class="auto-style6"></td>   <td><asp:Label ID="lblBookId" Text="Book Id :" runat="server"></asp:Label></td>
-                <td><asp:TextBox ID="txtBookId" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
                <td class="auto-style6"></td> <td><asp:Label ID="lblBookTitle" Text="Book Title :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtBookTitle" runat="server"></asp:TextBox></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvBookTitle" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBookTitle" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td><asp:Label ID="lblCategory" Text="Category :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtCategory" runat="server"></asp:TextBox></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvCategory" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCategory" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style6"></td><td><asp:Label ID="lblAuthorName" Text="Author Name :" runat="server"></asp:Label></td>
-                <td><asp:TextBox ID="TextBox1" runat="server" t TextMode="Password"></asp:TextBox></td>
+                <td><asp:TextBox ID="txtAuthorName" runat="server"  ></asp:TextBox></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvAuthorName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtAuthorName" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td>&nbsp;</td>
@@ -50,7 +58,17 @@
             <tr>
                <td class="auto-style6">&nbsp;</td> <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="txtSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="txtSubmit" runat="server" Text="Submit" OnClick="txtSubmit_Click" />
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="auto-style9">
+
+                </td>
+                <td>
+                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>

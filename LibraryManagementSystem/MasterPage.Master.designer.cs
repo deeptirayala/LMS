@@ -31,13 +31,22 @@ namespace LibraryManagementSystem {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtusername control.
+        /// pn1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtusername;
+        protected global::System.Web.UI.WebControls.Panel pn1;
+        
+        /// <summary>
+        /// lblHi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHi;
         
         /// <summary>
         /// lblUserName control.
@@ -49,6 +58,15 @@ namespace LibraryManagementSystem {
         protected global::System.Web.UI.WebControls.Label lblUserName;
         
         /// <summary>
+        /// pn2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pn2;
+        
+        /// <summary>
         /// lblLeftBr control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace LibraryManagementSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLeftBr;
+        
+        /// <summary>
+        /// lbtnSignOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSignOut;
         
         /// <summary>
         /// lblRightBr control.
