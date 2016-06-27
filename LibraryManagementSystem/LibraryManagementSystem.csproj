@@ -216,8 +216,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ForgotPassword.aspx" />
-    <Content Include="Home.aspx" />
-    <Content Include="HomeUser.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="IssuedBooks.aspx" />
     <Content Include="LibraryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -275,7 +274,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="SearchBooks.aspx" />
@@ -442,13 +440,6 @@
     <Compile Include="Copy.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="EditDelBooks.aspx.cs">
       <DependentUpon>EditDelBooks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,19 +457,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HomeUser.aspx.cs">
-      <DependentUpon>HomeUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HomeUser.aspx.designer.cs">
-      <DependentUpon>HomeUser.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="IssuedBooks.aspx.cs">
       <DependentUpon>IssuedBooks.aspx</DependentUpon>

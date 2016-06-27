@@ -76,8 +76,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -87,6 +86,13 @@
                     <asp:HyperLink ID="hlSignUp" runat="server" NavigateUrl="~/Registration.aspx">SignUp</asp:HyperLink>
                 </td>
                 <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+                <td>&nbsp;</td>
             </tr>
         </table>
     </div>

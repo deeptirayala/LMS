@@ -31,20 +31,21 @@ namespace LibraryManagementSystem
                 if (rolequery != null)
                 {
 
-                    if (cbRemember.Checked)
-                    {
-                        Response.Cookies["UserName"].Value = txtUserName.Text;
-                        Response.Cookies["Password"].Value = txtPassword.Text;
-                        Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(15);
-                        Response.Cookies["Password"].Expires = DateTime.Now.AddDays(15);
-                    }
-                    else
-                    {
-                        Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(-1);
-                        Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
+                    //if (cbRemember.Checked)
+                    //{
+                    //    Response.Cookies["UserName"].Value = txtUserName.Text;
+                    //    Response.Cookies["Password"].Value = txtPassword.Text;
+                    //    Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(15);
+                    //    Response.Cookies["Password"].Expires = DateTime.Now.AddDays(15);
+                    //}
+                    //else
+                    //{
+                    //    Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(-1);
+                    //    Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
 
-                    }
-                    Response.Cookies["Role"].Value = rolequery.ToString();
+                    //}
+                    Session["role"] = rolequery.ToString();
+                    Session["name"] = txtUserName.Text;
                     FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, cbRemember.Checked);
                 }
 

@@ -1,42 +1,53 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LibraryManagementSystem._Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LibraryManagementSystem.Home" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
+        <div>
+        <table>
+            <tr>
+                <td>
+                    <h2>Welcome !</h2>
+                </td>
+                <td>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     <asp:Panel ID="AdminPanel" runat="server"  >
+                    <asp:Menu ID="AdminMenu" runat="server">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/AddNewBook.aspx" Text="Add New Book" Value="Add New Book"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ListOfUsers.aspx" Text="List Of Users" Value="List Of Users"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ListOfUsers.aspx" Text="View/Delete Users" Value="View/Delete Users"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/EditDelBooks.aspx" Text="Edit/Delete Books" Value="Edit/Delete Books"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/IssuedBooks.aspx" Text="View Issued Books" Value="View Issued Books"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ReturnedBooks.aspx" Text="View Returned Books" Value="View Returned Books"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                         </asp:Panel>
+                </td>
+                <td>
+                    
+                    <asp:Panel ID="UserPanel" runat="server" >
+                      <asp:Menu ID="UserMenu" runat="server">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/ForgotPassword.aspx" Text="Forgot Password" Value="Forgot Password"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ChangePassword.aspx" Text="Change Password" Value="Change Password"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/RequestABook.aspx" Text="Request a Book" Value="Request a Book"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ReturnABook.aspx" Text="Return a Book" Value="Return a Book"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserBookInfo.aspx" Text="Books Info" Value="Books Info"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                    </asp:Panel>
+                </td>
+                
+            </tr>
+           
+        </table>
     </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
-
+    
+   
+    
 </asp:Content>

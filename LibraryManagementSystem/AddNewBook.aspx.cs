@@ -11,7 +11,11 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label fn = Page.Master.FindControl("lblUserName") as Label;
+            if (Request.Cookies["UserName"] != null)
+            {
+                fn.Text = Request.Cookies["UserName"].Value;
+            }
         }
 
         protected void txtSubmit_Click(object sender, EventArgs e)

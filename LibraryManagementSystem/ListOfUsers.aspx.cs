@@ -14,6 +14,11 @@ namespace LibraryManagementSystem
             if (!IsPostBack)
             {
                 BindGrid();
+                Label fn = Page.Master.FindControl("lblUserName") as Label;
+                if (Request.Cookies["UserName"] != null)
+                {
+                    fn.Text = Request.Cookies["UserName"].Value;
+                }
             }
         }
         private void BindGrid()
