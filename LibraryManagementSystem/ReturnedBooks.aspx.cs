@@ -11,11 +11,12 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label fn = Page.Master.FindControl("lblUserName") as Label;
-            if (Request.Cookies["UserName"] != null)
-            {
-                fn.Text = Request.Cookies["UserName"].Value;
+           
+                Label fn = Page.Master.FindControl("lblUserName") as Label;
+                if (Session["name"] != null)
+                {
+                    fn.Text = Session["name"].ToString();
+                }
             }
-        }
     }
 }

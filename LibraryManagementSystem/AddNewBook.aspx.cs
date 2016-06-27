@@ -12,10 +12,31 @@ namespace LibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             Label fn = Page.Master.FindControl("lblUserName") as Label;
-            if (Request.Cookies["UserName"] != null)
+            if (Session["name"] != null)
             {
-                fn.Text = Request.Cookies["UserName"].Value;
+                fn.Text = Session["name"].ToString();
             }
+        }
+
+        protected void txtSubmit_Click(object sender, EventArgs e)
+        {
+            // using command temporarily creates a context that accesses our database
+            using (deeptiEntities db = new deeptiEntities())
+            {
+
+               
+                Book objBook = new Book {
+                    AuthorName = txtAuthorName.Text,
+                    BookTitle = txtBookTitle.Text,
+                    Category = txtCategory.Text
+                };
+                
+                db.Books.Add(objBook);
+                db.SaveChanges();
+
+                lblMessage.Text = " Book added successfully !";
+            }
+               
         }
 
         protected void txtSubmit_Click(object sender, EventArgs e)

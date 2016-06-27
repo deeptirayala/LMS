@@ -15,9 +15,9 @@ namespace LibraryManagementSystem
             {
                 BindGrid();
                 Label fn = Page.Master.FindControl("lblUserName") as Label;
-                if (Request.Cookies["UserName"] != null)
+                if (Session["name"] != null)
                 {
-                    fn.Text = Request.Cookies["UserName"].Value;
+                    fn.Text = Session["name"].ToString();
                 }
             }
         }
