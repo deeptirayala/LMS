@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td class="auto-style12">
-                    <asp:LinkButton ID="lbtnMenu" runat="server" PostBackUrl="~/Default.aspx">Main Menu</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnMenu" runat="server" PostBackUrl="~/Default.aspx" CausesValidation="False">Main Menu</asp:LinkButton>
                 </td><td class="auto-style8">
                     <h2>Change Your Password</h2>
                          </td>

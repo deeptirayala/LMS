@@ -126,7 +126,7 @@
                 </td>
                  <td>
 
-                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
 
                 </td>
                 <td>

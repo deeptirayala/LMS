@@ -66,7 +66,7 @@ namespace LibraryManagementSystem
                             smtp.EnableSsl = true;
                             NetworkCredential nwcred = new NetworkCredential();
                             nwcred.UserName = "deeps.careers33@gmail.com";
-                            nwcred.Password = "desp4job";
+                            nwcred.Password = "aaaaa";
                             smtp.UseDefaultCredentials = true;
                             smtp.Credentials = nwcred;
                             //smtp.Port = 465;
