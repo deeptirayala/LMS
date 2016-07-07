@@ -50,6 +50,7 @@ namespace LibraryManagementSystem
                     objreg.Password = txtPassword.Text;
                     objreg.MobileNo = txtMobileNo.Text;
                     objreg.RegisteredDate = DateTime.Now;
+                    objreg.Email = txtEmail.Text;
                     objreg.Role = ddlRole.SelectedItem.Text;
 
                     // add registration object to the registrations collection in the object context  

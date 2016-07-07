@@ -35,6 +35,7 @@
           <Property Name="MobileNo" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="RegisteredDate" Type="datetime" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Transactions">
           <Key>
@@ -231,6 +232,7 @@
           <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="RegisteredDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Role" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Registration" ToRole="Transaction" />
         </EntityType>
         <Association Name="FK_Transactions_Registration">
@@ -288,6 +290,7 @@
           <EntitySetMapping Name="Registrations">
             <EntityTypeMapping TypeName="deeptiModel.Registration">
               <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="RegisteredDate" ColumnName="RegisteredDate" />
                 <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />

@@ -118,6 +118,35 @@
                     &nbsp;</td>
             </tr>
             <tr>
+              <td class="auto-style11">&nbsp;</td>  <td class="auto-style12">
+                <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                </td>
+                 <td>
+
+                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </td>
+                <td>
+
+                    &nbsp;</td>
+            </tr>
+            <tr>
+              <td class="auto-style11">&nbsp;</td>  <td class="auto-style12">
+                &nbsp;</td>
+                <td>
+                    <asp:RegularExpressionValidator ID="reEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter valid Email" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </td>
+                 <td>
+
+                     &nbsp;</td>
+                <td>
+
+                    &nbsp;</td>
+            </tr>
+            <tr>
                <td class="auto-style11"></td> <td class="auto-style12">
                 <asp:Label ID="lblRole" runat="server" Text="Role"></asp:Label>
                 </td>
@@ -169,6 +198,14 @@
                <td>
                    <asp:LinkButton ID="Login" PostBackUrl="~/Login.aspx" Text="Login Here" runat="server"></asp:LinkButton>
                </td>
+            </tr>
+
+            <tr>
+              <td class="auto-style6">&nbsp;</td>  <td>
+
+                &nbsp;</td>
+               <td>
+                   &nbsp;</td>
             </tr>
 
         </table>

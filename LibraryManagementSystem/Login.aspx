@@ -74,18 +74,19 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
                 <td></td>
                 <td>
                     <asp:Label ID="lblNewUser" runat="server" Text="Are you a New User?"></asp:Label>
                     <asp:HyperLink ID="hlSignUp" runat="server" NavigateUrl="~/Registration.aspx">SignUp</asp:HyperLink>
                 </td>
                 <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:LinkButton ID="lbtnForgotPwd" runat="server" CausesValidation="False" PostBackUrl="~/ForgotPassword.aspx">Forgot Password?</asp:LinkButton>
+                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
