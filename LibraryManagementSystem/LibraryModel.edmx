@@ -13,7 +13,7 @@
           <Property Name="BookTitle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Copies" Type="int" />
+          <Property Name="Copies" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Copies">
           <Key>
@@ -32,7 +32,7 @@
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MobileNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="RegisteredDate" Type="datetime" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
@@ -44,9 +44,9 @@
           <Property Name="BookId" Type="int" Nullable="false" />
           <Property Name="MemberId" Type="int" Nullable="false" />
           <Property Name="CopyId" Type="int" Nullable="false" />
-          <Property Name="IssueDate" Type="datetime" Nullable="false" />
-          <Property Name="DueDate" Type="datetime" Nullable="false" />
-          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="IssueDate" Type="date" Nullable="false" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" />
           <Property Name="Fine" Type="money" />
         </EntityType>
         <Association Name="FK_Copies_Books">
@@ -131,21 +131,16 @@
           <Property Name="BookId" Type="Int32" Nullable="false" />
           <Property Name="MemberId" Type="Int32" Nullable="false" />
           <Property Name="CopyId" Type="Int32" Nullable="false" />
-          <Property Name="IssueDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="IssueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="0" />
           <Property Name="Fine" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Registration" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Transaction" ToRole="Registration" />
           <NavigationProperty Name="Copy" Relationship="deeptiModel.FK_Transactions_Copies" FromRole="Transaction" ToRole="Copy" />
           <NavigationProperty Name="Book" Relationship="deeptiModel.FK_Transactions_Books" FromRole="Transaction" ToRole="Book" />
+          <NavigationProperty Name="Registration" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Transaction" ToRole="Registration" />
         </EntityType>
         <EntityContainer Name="deeptiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Transactions" EntityType="Self.Transaction" />
-          <EntitySet Name="Registrations" EntityType="deeptiModel.Registration" />
-          <AssociationSet Name="FK_Transactions_Registration" Association="deeptiModel.FK_Transactions_Registration">
-            <End Role="Registration" EntitySet="Registrations" />
-            <End Role="Transaction" EntitySet="Transactions" />
-          </AssociationSet>
           <EntitySet Name="Copies" EntityType="deeptiModel.Copy" />
           <AssociationSet Name="FK_Transactions_Copies" Association="deeptiModel.FK_Transactions_Copies">
             <End Role="Copy" EntitySet="Copies" />
@@ -160,33 +155,12 @@
             <End Role="Book" EntitySet="Books" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="Registrations" EntityType="deeptiModel.Registration" />
+          <AssociationSet Name="FK_Transactions_Registration" Association="deeptiModel.FK_Transactions_Registration">
+            <End Role="Registration" EntitySet="Registrations" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Registration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="RegisteredDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Registration" ToRole="Transaction" />
-        </EntityType>
-        <Association Name="FK_Transactions_Registration">
-          <End Type="deeptiModel.Registration" Role="Registration" Multiplicity="1" />
-          <End Type="deeptiModel.Transaction" Role="Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Registration">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Transaction">
-              <PropertyRef Name="MemberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Copy">
           <Key>
             <PropertyRef Name="Id" />
@@ -217,7 +191,7 @@
           <Property Name="BookTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Copies" Type="Int32" />
+          <Property Name="Copies" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Copies1" Relationship="deeptiModel.FK_Copies_Books" FromRole="Book" ToRole="Copy" />
           <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Books" FromRole="Book" ToRole="Transaction" />
         </EntityType>
@@ -245,6 +219,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="RegisteredDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Registration" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_Transactions_Registration">
+          <End Type="deeptiModel.Registration" Role="Registration" Multiplicity="1" />
+          <End Type="deeptiModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -265,20 +265,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Registrations">
-            <EntityTypeMapping TypeName="deeptiModel.Registration">
-              <MappingFragment StoreEntitySet="Registration">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="RegisteredDate" ColumnName="RegisteredDate" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Copies">
             <EntityTypeMapping TypeName="deeptiModel.Copy">
               <MappingFragment StoreEntitySet="Copies">
@@ -295,6 +281,20 @@
                 <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrations">
+            <EntityTypeMapping TypeName="deeptiModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="RegisteredDate" ColumnName="RegisteredDate" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

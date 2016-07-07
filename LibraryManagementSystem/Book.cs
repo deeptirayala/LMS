@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
         public string BookTitle { get; set; }
         public string Category { get; set; }
         public string AuthorName { get; set; }
-        public Nullable<int> Copies { get; set; }
+        public int Copies { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Copy> Copies1 { get; set; }

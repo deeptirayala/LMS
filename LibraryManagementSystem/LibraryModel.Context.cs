@@ -26,8 +26,8 @@ namespace LibraryManagementSystem
         }
     
         public virtual DbSet<Transaction> Transactions { get; set; }
-        public virtual DbSet<Registration> Registrations { get; set; }
         public virtual DbSet<Copy> Copies { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Registration> Registrations { get; set; }
     }
 }

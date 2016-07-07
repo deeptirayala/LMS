@@ -17,6 +17,12 @@
         .auto-style10 {
             width: 99px;
         }
+        .auto-style11 {
+            width: 263px;
+        }
+        .auto-style12 {
+            width: 126px;
+        }
     </style>
     
 </asp:Content>
@@ -37,20 +43,20 @@
    
     <div>
         <table>
-            <tr><td class="auto-style6"></td><td></td><td></td>
+            <tr><td class="auto-style11"></td><td class="auto-style12"></td><td></td>
                 <td>
                     
                 </td>
             </tr>
             <tr>
-             <td class="auto-style6"></td>   <td>&nbsp;</td>
+             <td class="auto-style11"></td>   <td class="auto-style12">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
 
                 </td>
             </tr>
             <tr>
-               <td class="auto-style6"></td> <td><asp:Label ID="lblFirstName" Text="First Name :" runat="server"></asp:Label></td>
+               <td class="auto-style11"></td> <td class="auto-style12"><asp:Label ID="lblFirstName" Text="First Name :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox></td>
                 <td>
 
@@ -59,7 +65,7 @@
                 </td>
             </tr>
             <tr>
-              <td class="auto-style6"></td>  <td><asp:Label ID="lblLastName" Text="Last Name :" runat="server"></asp:Label></td>
+              <td class="auto-style11"></td>  <td class="auto-style12"><asp:Label ID="lblLastName" Text="Last Name :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtLastName" runat="server"></asp:TextBox></td>
                  <td>
 
@@ -68,7 +74,7 @@
                 </td>
             </tr>
             <tr>
-               <td class="auto-style6"></td> <td><asp:Label ID="lblUserName" Text="User Name :" runat="server"></asp:Label></td>
+               <td class="auto-style11"></td> <td class="auto-style12"><asp:Label ID="lblUserName" Text="User Name :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtUserName" runat="server"></asp:TextBox></td>
                  <td>
 
@@ -77,7 +83,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6"></td><td><asp:Label ID="lblPassword" Text="Password :" runat="server"></asp:Label></td>
+                <td class="auto-style11"></td><td class="auto-style12"><asp:Label ID="lblPassword" Text="Password :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtPassword" runat="server" t TextMode="Password"></asp:TextBox></td>
                  <td>
 
@@ -86,16 +92,33 @@
                 </td>
             </tr>
             <tr>
-              <td class="auto-style6"></td>  <td><asp:Label ID="lblMobileNo" Text="Mobile No :" runat="server"></asp:Label></td>
+              <td class="auto-style11"></td>  <td class="auto-style12"><asp:Label ID="lblMobileNo" Text="Mobile No :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtMobileNo" runat="server"></asp:TextBox></td>
                  <td>
 
                      <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ControlToValidate="txtMobileNo" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
+                <td>
+
+                    &nbsp;</td>
             </tr>
             <tr>
-               <td class="auto-style6"></td> <td>
+              <td class="auto-style11">&nbsp;</td>  <td class="auto-style12">
+                <asp:Label ID="Label1" runat="server" Text="(ex: 111-555-9999)"></asp:Label>
+                </td>
+                <td>
+                    <asp:RegularExpressionValidator ID="reMobile" runat="server" ControlToValidate="txtMobileNo" ErrorMessage="Enter valid Phone Number" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[2-9]\d{2}-\d{3}-\d{4}$"></asp:RegularExpressionValidator>
+                </td>
+                 <td>
+
+                     &nbsp;</td>
+                <td>
+
+                    &nbsp;</td>
+            </tr>
+            <tr>
+               <td class="auto-style11"></td> <td class="auto-style12">
                 <asp:Label ID="lblRole" runat="server" Text="Role"></asp:Label>
                 </td>
                 <td>
@@ -113,14 +136,14 @@
                      &nbsp;</td>
             </tr>
             <tr>
-               <td class="auto-style6"></td> <td></td>
+               <td class="auto-style11"></td> <td class="auto-style12"></td>
                 <td></td>
                  <td>
 
                 </td>
             </tr>
             <tr>
-              <td class="auto-style6"></td>  <td>
+              <td class="auto-style11"></td>  <td class="auto-style12">
 
                 </td>
                 <td>
@@ -143,7 +166,9 @@
                 <asp:Label ID="lblNewUser" runat="server" Text="Not a New User?"></asp:Label>
 
                 </td>
-               
+               <td>
+                   <asp:LinkButton ID="Login" PostBackUrl="~/Login.aspx" Text="Login Here" runat="server"></asp:LinkButton>
+               </td>
             </tr>
 
         </table>
@@ -154,7 +179,7 @@
                 </td>
                 <td class="auto-style9">
 
-                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
 
                 </td>
             </tr>

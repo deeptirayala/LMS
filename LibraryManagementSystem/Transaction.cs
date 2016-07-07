@@ -23,8 +23,8 @@ namespace LibraryManagementSystem
         public Nullable<System.DateTime> ReturnDate { get; set; }
         public Nullable<decimal> Fine { get; set; }
     
-        public virtual Registration Registration { get; set; }
         public virtual Copy Copy { get; set; }
         public virtual Book Book { get; set; }
+        public virtual Registration Registration { get; set; }
     }
 }
