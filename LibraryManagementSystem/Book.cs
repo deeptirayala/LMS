@@ -17,7 +17,7 @@ namespace LibraryManagementSystem
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.Copies = new HashSet<Copy>();
+            this.Copies1 = new HashSet<Copy>();
             this.Transactions = new HashSet<Transaction>();
         }
     
@@ -25,9 +25,10 @@ namespace LibraryManagementSystem
         public string BookTitle { get; set; }
         public string Category { get; set; }
         public string AuthorName { get; set; }
+        public Nullable<int> Copies { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Copy> Copies { get; set; }
+        public virtual ICollection<Copy> Copies1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }
     }

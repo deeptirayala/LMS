@@ -22,11 +22,10 @@ namespace LibraryManagementSystem
     
         public int Id { get; set; }
         public int BookId { get; set; }
-        public string Condition { get; set; }
         public string Status { get; set; }
     
-        public virtual Book Book { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual Book Book { get; set; }
     }
 }

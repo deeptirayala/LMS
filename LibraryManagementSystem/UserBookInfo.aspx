@@ -23,4 +23,29 @@
            </tr>
        </table>
    </div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <asp:LinkButton ID="lbtnMenu" Text="Main Menu" runat="server" PostBackUrl="~/Default.aspx"></asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                    <asp:GridView ID="gvBooks" runat="server" AllowPaging="True" EmptyDataText="No Records!" OnPageIndexChanging="gvBooks_PageIndexChanging">
+                    </asp:GridView>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblMessage" runat="server" ></asp:Label>
+                </td>
+            </tr>
+        </table>
+    </div>
 </asp:Content>

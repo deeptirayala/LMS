@@ -13,6 +13,7 @@
           <Property Name="BookTitle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Copies" Type="int" />
         </EntityType>
         <EntityType Name="Copies">
           <Key>
@@ -20,7 +21,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BookId" Type="int" Nullable="false" />
-          <Property Name="Condition" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Registration">
@@ -123,28 +123,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="deeptiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Book">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Copies" Relationship="Self.FK_Copies_Books" FromRole="Books" ToRole="Copies" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
-        </EntityType>
-        <EntityType Name="Copy">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="BookId" Type="Int32" Nullable="false" />
-          <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_Copies_Books" FromRole="Copies" ToRole="Books" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Copies" FromRole="Copies" ToRole="Transactions" />
-        </EntityType>
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="Id" />
@@ -157,65 +135,29 @@
           <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ReturnDate" Type="DateTime" Precision="3" />
           <Property Name="Fine" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
-          <NavigationProperty Name="Copy" Relationship="Self.FK_Transactions_Copies" FromRole="Transactions" ToRole="Copies" />
           <NavigationProperty Name="Registration" Relationship="deeptiModel.FK_Transactions_Registration" FromRole="Transaction" ToRole="Registration" />
+          <NavigationProperty Name="Copy" Relationship="deeptiModel.FK_Transactions_Copies" FromRole="Transaction" ToRole="Copy" />
+          <NavigationProperty Name="Book" Relationship="deeptiModel.FK_Transactions_Books" FromRole="Transaction" ToRole="Book" />
         </EntityType>
-        <Association Name="FK_Copies_Books">
-          <End Role="Books" Type="Self.Book" Multiplicity="1" />
-          <End Role="Copies" Type="Self.Copy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Books">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Copies">
-              <PropertyRef Name="BookId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transactions_Books">
-          <End Role="Books" Type="Self.Book" Multiplicity="1" />
-          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Books">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Transactions">
-              <PropertyRef Name="BookId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transactions_Copies">
-          <End Role="Copies" Type="Self.Copy" Multiplicity="1" />
-          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Copies">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Transactions">
-              <PropertyRef Name="CopyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="deeptiEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Books" EntityType="Self.Book" />
-          <EntitySet Name="Copies" EntityType="Self.Copy" />
           <EntitySet Name="Transactions" EntityType="Self.Transaction" />
-          <AssociationSet Name="FK_Copies_Books" Association="Self.FK_Copies_Books">
-            <End Role="Books" EntitySet="Books" />
-            <End Role="Copies" EntitySet="Copies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transactions_Books" Association="Self.FK_Transactions_Books">
-            <End Role="Books" EntitySet="Books" />
-            <End Role="Transactions" EntitySet="Transactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transactions_Copies" Association="Self.FK_Transactions_Copies">
-            <End Role="Copies" EntitySet="Copies" />
-            <End Role="Transactions" EntitySet="Transactions" />
-          </AssociationSet>
           <EntitySet Name="Registrations" EntityType="deeptiModel.Registration" />
           <AssociationSet Name="FK_Transactions_Registration" Association="deeptiModel.FK_Transactions_Registration">
             <End Role="Registration" EntitySet="Registrations" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Copies" EntityType="deeptiModel.Copy" />
+          <AssociationSet Name="FK_Transactions_Copies" Association="deeptiModel.FK_Transactions_Copies">
+            <End Role="Copy" EntitySet="Copies" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Books" EntityType="deeptiModel.Book" />
+          <AssociationSet Name="FK_Copies_Books" Association="deeptiModel.FK_Copies_Books">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Copy" EntitySet="Copies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Books" Association="deeptiModel.FK_Transactions_Books">
+            <End Role="Book" EntitySet="Books" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
@@ -245,32 +187,70 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Copy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Copies" FromRole="Copy" ToRole="Transaction" />
+          <NavigationProperty Name="Book" Relationship="deeptiModel.FK_Copies_Books" FromRole="Copy" ToRole="Book" />
+        </EntityType>
+        <Association Name="FK_Transactions_Copies">
+          <End Type="deeptiModel.Copy" Role="Copy" Multiplicity="1" />
+          <End Type="deeptiModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Copy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="CopyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Copies" Type="Int32" />
+          <NavigationProperty Name="Copies1" Relationship="deeptiModel.FK_Copies_Books" FromRole="Book" ToRole="Copy" />
+          <NavigationProperty Name="Transactions" Relationship="deeptiModel.FK_Transactions_Books" FromRole="Book" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_Copies_Books">
+          <End Type="deeptiModel.Book" Role="Book" Multiplicity="1" />
+          <End Type="deeptiModel.Copy" Role="Copy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Copy">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Books">
+          <End Type="deeptiModel.Book" Role="Book" Multiplicity="1" />
+          <End Type="deeptiModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="deeptiModelStoreContainer" CdmEntityContainer="deeptiEntities">
-          <EntitySetMapping Name="Books">
-            <EntityTypeMapping TypeName="deeptiModel.Book">
-              <MappingFragment StoreEntitySet="Books">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Copies">
-            <EntityTypeMapping TypeName="deeptiModel.Copy">
-              <MappingFragment StoreEntitySet="Copies">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="Condition" ColumnName="Condition" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="deeptiModel.Transaction">
               <MappingFragment StoreEntitySet="Transactions">
@@ -295,6 +275,26 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Copies">
+            <EntityTypeMapping TypeName="deeptiModel.Copy">
+              <MappingFragment StoreEntitySet="Copies">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="deeptiModel.Book">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="Copies" ColumnName="Copies" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

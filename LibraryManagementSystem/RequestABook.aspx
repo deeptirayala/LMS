@@ -25,26 +25,46 @@
    </div>
     <div>
         <table>
-            <tr><td class="auto-style6"></td><td></td><td></td></tr>
+            <tr><td class="auto-style6">
+                <asp:LinkButton ID="lbtnMenu" runat="server" PostBackUrl="~/Default.aspx">Main Menu</asp:LinkButton>
+                </td><td></td><td></td></tr>
             <tr>
              <td class="auto-style6"></td>   <td><asp:Label ID="lblBookId" Text="Book Id :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtBookId" runat="server"></asp:TextBox></td>
+                <td>
+
+                    <asp:RequiredFieldValidator ID="rfvBookId" runat="server" ControlToValidate="txtBookId" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+                </td>
             </tr>
             <tr>
              <td class="auto-style6">&nbsp;</td>   <td>
-                <asp:Label ID="lblMemberId" runat="server" Text="Member Id :"></asp:Label>
+                <asp:Label ID="lblCategory" runat="server" Text="Category :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtMemberId" runat="server" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtCategory" runat="server"></asp:TextBox>
+                </td>
+                <td>
+
+                    <asp:RequiredFieldValidator ID="rfvCategory" runat="server" ControlToValidate="txtCategory" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
                 </td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td><asp:Label ID="lblBookTitle" Text="Book Title :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtBookTitle" runat="server"></asp:TextBox></td>
+                <td>
+
+                    <asp:RequiredFieldValidator ID="rfvBookTitle" runat="server" ControlToValidate="txtBookTitle" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+                </td>
             </tr>
             <tr>
-              <td class="auto-style6"></td>  <td><asp:Label ID="lblCopies" Text="Issued Date :" runat="server"></asp:Label></td>
-                <td><asp:TextBox ID="txtIssuedDate" runat="server" ReadOnly="True"></asp:TextBox></td>
+              <td class="auto-style6"></td>  <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+
+                    &nbsp;</td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td>&nbsp;</td>
@@ -53,7 +73,8 @@
             <tr>
                 <td class="auto-style6"></td><td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="txtSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="txtSubmit" runat="server" Text="Submit" OnClick="txtSubmit_Click" />
+                    <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
                 </td>
             </tr>
             <tr>
@@ -65,9 +86,7 @@
             <tr>
                 <td class="auto-style6"></td>
                 <td>
-                    <asp:Label runat="server" ID="lblMessage">
-
-                    </asp:Label>
+                    <asp:Label runat="server" ID="lblMessage" ForeColor="Red"></asp:Label>
                 </td>
                 <td></td>
             </tr>

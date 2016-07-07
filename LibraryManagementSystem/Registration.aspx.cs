@@ -11,78 +11,77 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Master.FindControl("pn1").Visible = false;
-            Master.FindControl("pn2").Visible = false;
-        }
-
-        protected void btnRegister_Click(object sender, EventArgs e)
-        {
-            // using command temporarily creates a context that accesses our database
-            // creating an object of the object context "deeptiEntities"
-            using (deeptiEntities db = new deeptiEntities())
+           
+            try
             {
-                //creating an object of the Registration class
+                Page.SetFocus(txtFirstName);
+                if (!Page.IsPostBack)
+                {
+                    Master.FindControl("pn1").Visible = false;
+                    Master.FindControl("pn2").Visible = false;
+                }
 
-                Registration objreg = new Registration();
-
-                // set values to the db columns
-
-                objreg.FirstName = txtFirstName.Text;
-                objreg.LastName = txtLastName.Text;
-                objreg.UserName = txtUserName.Text;
-                objreg.Password = txtPassword.Text;
-                objreg.MobileNo = txtMobileNo.Text;
-                objreg.RegisteredDate = DateTime.Now;
-                objreg.Role = ddlRole.SelectedItem.Text;
-
-                // add registration object to the registrations collection in the object context  
-
-                db.Registrations.Add(objreg);
-
-                //call savechanges method to insert the record into table
-
-                db.SaveChanges();
-                lblMessage.Text = " You have registered successfully!";
             }
-
-               
+            catch(Exception ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
 
 
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            // using command temporarily creates a context that accesses our database
-            // creating an object of the object context "deeptiEntities"
-            using (deeptiEntities db = new deeptiEntities())
+            try
             {
-                //creating an object of the Registration class
+                // using command temporarily creates a context that accesses our database
+                // creating an object of the object context "deeptiEntities"
+                using (deeptiEntities db = new deeptiEntities())
+                {
+                    //creating an object of the Registration class
 
-                Registration objreg = new Registration();
+                    Registration objreg = new Registration();
 
-                // set values to the db columns
+                    // set values to the db columns
 
-                objreg.FirstName = txtFirstName.Text;
-                objreg.LastName = txtLastName.Text;
-                objreg.UserName = txtUserName.Text;
-                objreg.Password = txtPassword.Text;
-                objreg.MobileNo = txtMobileNo.Text;
-                objreg.RegisteredDate = DateTime.Now;
-                objreg.Role = ddlRole.SelectedItem.Text;
+                    objreg.FirstName = txtFirstName.Text;
+                    objreg.LastName = txtLastName.Text;
+                    objreg.UserName = txtUserName.Text;
+                    objreg.Password = txtPassword.Text;
+                    objreg.MobileNo = txtMobileNo.Text;
+                    objreg.RegisteredDate = DateTime.Now;
+                    objreg.Role = ddlRole.SelectedItem.Text;
 
-                // add registration object to the registrations collection in the object context  
+                    // add registration object to the registrations collection in the object context  
 
-                db.Registrations.Add(objreg);
+                    db.Registrations.Add(objreg);
 
-                //call savechanges method to insert the record into table
+                    //call savechanges method to insert the record into table
 
-                db.SaveChanges();
-                lblMessage.Text = " You have registered successfully!";
+                    db.SaveChanges();
+                    lblMessage.Text = " You have registered successfully!";
+                }
+
+
+
+
+            }
+            catch(Exception ex)
+            {
+                lblMessage.Text = ex.Message;
             }
 
-               
 
+        }
 
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtMobileNo.Text = "";
+            txtPassword.Text = "";
+            txtUserName.Text = "";
+            lblMessage.Text = "";
         }
     }
 }

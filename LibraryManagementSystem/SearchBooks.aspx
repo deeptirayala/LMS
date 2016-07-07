@@ -25,7 +25,9 @@
    </div>
     <div>
         <table>
-            <tr><td class="auto-style6"></td><td></td><td></td></tr>
+            <tr><td class="auto-style6">
+                <asp:LinkButton ID="lbtnMenu" runat="server" PostBackUrl="~/Default.aspx">Main Menu</asp:LinkButton>
+                </td><td></td><td></td></tr>
             <tr>
              <td class="auto-style6"></td>   <td><asp:Label ID="lblBookId" Text="Book Id :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtBookId" runat="server"></asp:TextBox></td>
@@ -36,7 +38,7 @@
             </tr>
             <tr>
               <td class="auto-style6"></td>  <td><asp:Label ID="lblCategory" Text="Category :" runat="server"></asp:Label></td>
-                <td><asp:TextBox ID="txtCategory" runat="server" ReadOnly="True"></asp:TextBox></td>
+                <td><asp:TextBox ID="txtCategory" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td>
@@ -53,21 +55,27 @@
             <tr>
                 <td class="auto-style6"></td><td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="txtSearch" runat="server" Text="Search" />
+                    <asp:Button ID="txtSearch" runat="server" Text="Search" OnClick="txtSearch_Click" />
+                    <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
                 </td>
             </tr>
             <tr>
                <td class="auto-style6"></td> <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
+            <tr>
+               <td class="auto-style6">&nbsp;</td> <td>&nbsp;</td>
+                <td>
+                    <asp:GridView ID="gvBooks" runat="server" AllowPaging="True" EmptyDataText="No Records!" OnPageIndexChanging="gvBooks_PageIndexChanging">
+                    </asp:GridView>
+                </td>
+            </tr>
             </table>
         <table>
             <tr>
                 <td class="auto-style6"></td>
                 <td>
-                    <asp:Label runat="server" ID="lblMessage">
-
-                    </asp:Label>
+                    <asp:Label runat="server" ID="lblMessage" ForeColor="Red"></asp:Label>
                 </td>
                 <td></td>
             </tr>

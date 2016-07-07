@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -185,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Account Info.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -201,12 +206,13 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddNewBook.aspx" />
+    <Content Include="BookTransactions.aspx" />
     <Content Include="ChangePassword.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="EditDelBooks.aspx" />
+    <Content Include="EditDelUsers.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -215,9 +221,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ForgotPassword.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="IssuedBooks.aspx" />
     <Content Include="LibraryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryModel.edmx</DependentUpon>
@@ -241,7 +245,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Registration.aspx" />
     <Content Include="RequestABook.aspx" />
-    <Content Include="ReturnedBooks.aspx" />
     <Content Include="ReturnABook.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -297,6 +300,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account Info.aspx.cs">
+      <DependentUpon>Account Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account Info.aspx.designer.cs">
+      <DependentUpon>Account Info.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -423,19 +433,19 @@
     <Compile Include="Book.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookTransactions.aspx.cs">
+      <DependentUpon>BookTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookTransactions.aspx.designer.cs">
+      <DependentUpon>BookTransactions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Copy.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
@@ -447,12 +457,12 @@
     <Compile Include="EditDelBooks.aspx.designer.cs">
       <DependentUpon>EditDelBooks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ForgotPassword.aspx.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    <Compile Include="EditDelUsers.aspx.cs">
+      <DependentUpon>EditDelUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ForgotPassword.aspx.designer.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    <Compile Include="EditDelUsers.aspx.designer.cs">
+      <DependentUpon>EditDelUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -463,13 +473,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IssuedBooks.aspx.cs">
-      <DependentUpon>IssuedBooks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IssuedBooks.aspx.designer.cs">
-      <DependentUpon>IssuedBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="LibraryModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -525,13 +528,6 @@
     </Compile>
     <Compile Include="RequestABook.aspx.designer.cs">
       <DependentUpon>RequestABook.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReturnedBooks.aspx.cs">
-      <DependentUpon>ReturnedBooks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReturnedBooks.aspx.designer.cs">
-      <DependentUpon>ReturnedBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReturnABook.aspx.cs">
       <DependentUpon>ReturnABook.aspx</DependentUpon>

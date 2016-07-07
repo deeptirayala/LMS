@@ -10,142 +10,124 @@
 namespace LibraryManagementSystem {
     
     
-    public partial class AddNewBook {
+    public partial class Account_Info {
         
         /// <summary>
-        /// lblBookTitle control.
+        /// lbtnMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBookTitle;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnMenu;
         
         /// <summary>
-        /// txtBookTitle control.
+        /// lblId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookTitle;
+        protected global::System.Web.UI.WebControls.Label lblId;
         
         /// <summary>
-        /// rfvBookTitle control.
+        /// Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBookTitle;
+        protected global::System.Web.UI.WebControls.Label Id;
         
         /// <summary>
-        /// lblCategory control.
+        /// lblFn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
+        protected global::System.Web.UI.WebControls.Label lblFn;
         
         /// <summary>
-        /// txtCategory control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategory;
+        protected global::System.Web.UI.WebControls.Label FirstName;
         
         /// <summary>
-        /// rfvCategory control.
+        /// lblLn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCategory;
+        protected global::System.Web.UI.WebControls.Label lblLn;
         
         /// <summary>
-        /// lblAuthorName control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAuthorName;
+        protected global::System.Web.UI.WebControls.Label LastName;
         
         /// <summary>
-        /// txtAuthorName control.
+        /// lblUn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAuthorName;
+        protected global::System.Web.UI.WebControls.Label lblUn;
         
         /// <summary>
-        /// rfvAuthorName control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuthorName;
+        protected global::System.Web.UI.WebControls.Label UserName;
         
         /// <summary>
-        /// lblCopies control.
+        /// lblMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCopies;
+        protected global::System.Web.UI.WebControls.Label lblMobile;
         
         /// <summary>
-        /// txtCopies control.
+        /// MobileNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCopies;
+        protected global::System.Web.UI.WebControls.Label MobileNo;
         
         /// <summary>
-        /// rfvCopies control.
+        /// lblRegDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCopies;
+        protected global::System.Web.UI.WebControls.Label lblRegDate;
         
         /// <summary>
-        /// cvCopies control.
+        /// RegDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator cvCopies;
-        
-        /// <summary>
-        /// txtSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button txtSubmit;
-        
-        /// <summary>
-        /// btnClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Label RegDate;
         
         /// <summary>
         /// lblMessage control.

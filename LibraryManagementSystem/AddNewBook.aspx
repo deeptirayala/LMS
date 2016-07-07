@@ -52,13 +52,28 @@
                 </td>
             </tr>
             <tr>
-               <td class="auto-style6"></td> <td>&nbsp;</td>
-                <td>&nbsp;</td>
+               <td class="auto-style6"></td> <td>
+                <asp:Label ID="lblCopies" runat="server" Text="Copies:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtCopies" runat="server"></asp:TextBox>
+                </td>
+                <td>
+
+                    <asp:RequiredFieldValidator ID="rfvCopies" runat="server" ControlToValidate="txtCopies" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+                </td>
+                <td>
+
+                    <asp:CompareValidator ID="cvCopies" runat="server" ControlToValidate="txtCopies" ErrorMessage="Value should atleast be 1" ForeColor="Red" Operator="GreaterThan" SetFocusOnError="True" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+
+                </td>
             </tr>
             <tr>
                <td class="auto-style6">&nbsp;</td> <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="txtSubmit" runat="server" Text="Submit" OnClick="txtSubmit_Click" />
+                    <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
                 </td>
             </tr>
         </table>
@@ -68,7 +83,7 @@
 
                 </td>
                 <td>
-                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
         </table>

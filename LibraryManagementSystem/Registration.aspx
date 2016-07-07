@@ -125,6 +125,7 @@
                 </td>
                 <td>
                     <asp:Button ID="btnRegister" Text="Register" runat="server" OnClick="btnRegister_Click" />
+                    <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
                 </td>
                  <td>
 
@@ -132,6 +133,19 @@
             </tr>
 
             
+           
+            
+        </table>
+        <table>
+            <tr>
+              <td class="auto-style6">&nbsp;</td>  <td>
+
+                <asp:Label ID="lblNewUser" runat="server" Text="Not a New User?"></asp:Label>
+
+                </td>
+               
+            </tr>
+
         </table>
         <table>
             <tr>

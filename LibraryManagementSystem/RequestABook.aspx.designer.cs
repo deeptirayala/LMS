@@ -13,6 +13,15 @@ namespace LibraryManagementSystem {
     public partial class RequestBook {
         
         /// <summary>
+        /// lbtnMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnMenu;
+        
+        /// <summary>
         /// lblBookId control.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,40 @@ namespace LibraryManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox txtBookId;
         
         /// <summary>
-        /// lblMemberId control.
+        /// rfvBookId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMemberId;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBookId;
         
         /// <summary>
-        /// txtMemberId control.
+        /// lblCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMemberId;
+        protected global::System.Web.UI.WebControls.Label lblCategory;
+        
+        /// <summary>
+        /// txtCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCategory;
+        
+        /// <summary>
+        /// rfvCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCategory;
         
         /// <summary>
         /// lblBookTitle control.
@@ -67,22 +94,13 @@ namespace LibraryManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox txtBookTitle;
         
         /// <summary>
-        /// lblCopies control.
+        /// rfvBookTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCopies;
-        
-        /// <summary>
-        /// txtIssuedDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIssuedDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBookTitle;
         
         /// <summary>
         /// txtSubmit control.
@@ -92,6 +110,15 @@ namespace LibraryManagementSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button txtSubmit;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// lblMessage control.

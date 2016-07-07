@@ -10,7 +10,7 @@
 namespace LibraryManagementSystem {
     
     
-    public partial class ListOfBooks {
+    public partial class BookTransactions {
         
         /// <summary>
         /// lbtnMenu control.
@@ -22,13 +22,13 @@ namespace LibraryManagementSystem {
         protected global::System.Web.UI.WebControls.LinkButton lbtnMenu;
         
         /// <summary>
-        /// gvBooks control.
+        /// gvTransactions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBooks;
+        protected global::System.Web.UI.WebControls.GridView gvTransactions;
         
         /// <summary>
         /// lblMessage control.
