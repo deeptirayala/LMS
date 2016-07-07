@@ -29,7 +29,9 @@
           
     <div>
         <table>
-            <tr><td class="auto-style6"></td><td></td><td></td></tr>
+            <tr><td class="auto-style6">
+                <asp:LinkButton ID="lbtnMenu" runat="server" PostBackUrl="~/Default.aspx">Main Menu</asp:LinkButton>
+                </td><td></td><td></td></tr>
             <tr>
                <td class="auto-style6"></td> <td><asp:Label ID="lblBookTitle" Text="Book Title :" runat="server"></asp:Label></td>
                 <td><asp:TextBox ID="txtBookTitle" runat="server"></asp:TextBox></td>
